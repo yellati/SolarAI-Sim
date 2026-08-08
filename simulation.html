@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SolarAI Sim | Solar Thermal Simulation</title>
+
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/simulation.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+                         NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-sun"></i>
+        <span>SolarAI Sim</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="simulation.html" class="active">
+                Simulation
+            </a>
+        </li>
+
+        <li>
+            <a href="education.html">
+                Education
+            </a>
+        </li>
+
+        <li>
+            <a href="optimization.html">
+                AI Optimization
+            </a>
+        </li>
+
+    </ul>
+
+    <button id="themeButton" type="button">
+        <i id="themeIcon"
+           class="fa-solid fa-sun"></i>
+    </button>
+
+</nav>
+
+
+<!-- =========================================================
+                       PAGE TITLE
+========================================================= -->
+
+<section class="page-title">
+
+    <h1>
+        Solar Thermal Collector Simulation
+    </h1>
+
+    <p>
+        Select any collector below and perform a
+        real-time thermal simulation.
+    </p>
+
+</section>
+
+
+<!-- =========================================================
+                    TOP DASHBOARD
+========================================================= -->
+
+<section class="dashboard-container">
+
+
+    <!-- ================= LEFT ================= -->
+
+    <div class="dashboard-box">
+
+        <h2>
+            <i class="fa-solid fa-sliders"></i>
+            System Parameters
+        </h2>
+
+
+        <!-- TILT -->
+
+        <div class="parameter">
+
+            <label for="tilt">
+                Tilt Angle
+            </label>
+
+            <input
+                id="tilt"
+                type="range"
+                min="0"
+                max="90"
+                step="1"
+                value="30">
+
+            <span id="tiltValue">
+                30°
+            </span>
+
+        </div>
+
+
+        <!-- AZIMUTH -->
+
+        <div class="parameter">
+
+            <label for="azimuth">
+                Azimuth Angle
+            </label>
+
+            <input
+                id="azimuth"
+                type="range"
+                min="0"
+                max="360"
+                step="1"
+                value="180">
+
+            <span id="azimuthValue">
+                180°
+            </span>
+
+        </div>
+
+
+        <!-- PANEL AREA -->
+
+        <div class="parameter">
+
+            <label for="panelSize">
+                Panel Area
+            </label>
+
+            <input
+                id="panelSize"
+                type="range"
+                min="1"
+                max="20"
+                step="0.1"
+                value="5">
+
+            <span id="panelSizeValue">
+                5 m²
+            </span>
+
+        </div>
+
+
+        <!-- FLOW RATE -->
+
+        <div class="parameter">
+
+            <label for="flowRate">
+                Flow Rate
+            </label>
+
+            <input
+                id="flowRate"
+                type="range"
+                min="1"
+                max="10"
+                step="0.1"
+                value="2">
+
+            <span id="flowRateValue">
+                2.0 L/min
+            </span>
+
+        </div>
+
+
+        <!-- SOLAR IRRADIANCE -->
+
+        <div class="parameter">
+
+            <label for="irradiance">
+                Solar Irradiance
+            </label>
+
+            <input
+                id="irradiance"
+                type="range"
+                min="300"
+                max="1200"
+                step="1"
+                value="1000">
+
+            <span id="irradianceValue">
+                1000 W/m²
+            </span>
+
+        </div>
+
+
+        <!-- CLOUD COVER -->
+
+        <div class="parameter">
+
+            <label for="cloud">
+                Cloud Cover
+            </label>
+
+            <input
+                id="cloud"
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                value="20">
+
+            <span id="cloudValue">
+                20%
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= RIGHT ================= -->
+
+    <div class="dashboard-box">
+
+        <h2>
+            <i class="fa-solid fa-chart-line"></i>
+            Simulation Results
+        </h2>
+
+        <div class="result-grid">
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Efficiency
+                </h3>
+
+                <span id="efficiency">
+                    0%
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Output Power
+                </h3>
+
+                <span id="power">
+                    0 W
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Useful Heat
+                </h3>
+
+                <span id="heat">
+                    0 W
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Temperature
+                </h3>
+
+                <span id="temperature">
+                    0 °C
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Heat Loss
+                </h3>
+
+                <span id="loss">
+                    0 W
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    CO₂ Reduction
+                </h3>
+
+                <span id="co2">
+                    0 kg
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+                 SOLAR COLLECTOR LIBRARY
+========================================================= -->
+
+<section class="collector-section">
+
+    <h2>
+        Solar Collector Library
+    </h2>
+
+
+    <div class="collector-grid">
+
+
+        <!-- FLAT PLATE -->
+
+           <div class="collector-card"
+               data-model="flatplate">
+
+              <img src="assets/images/flatplate.jpg" alt="Flat Plate Collector">
+
+
+            <div class="card-content">
+
+                <h3>
+                    Flat Plate Collector
+                </h3>
+
+                <p>
+                    Thermal Efficiency : 75%
+                </p>
+
+                <button
+                    class="open-btn"
+                    type="button">
+
+                    Open Simulation
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- EVACUATED TUBE -->
+
+           <div class="collector-card"
+               data-model="evacuated">
+              <img src="assets/images/evacuated.jpg" alt="Evacuated Tube Collector">
+
+            <div class="card-content">
+
+                <h3>
+                    Evacuated Tube Collector
+                </h3>
+
+                <p>
+                    Thermal Efficiency : 90%
+                </p>
+
+                <button
+                    class="open-btn"
+                    type="button">
+
+                    Open Simulation
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PARABOLIC -->
+
+           <div class="collector-card"
+               data-model="parabolic">
+
+              <img src="assets/images/parabolic.jpg" alt="Parabolic Trough">
+
+            <div class="card-content">
+
+                <h3>
+                    Parabolic Trough
+                </h3>
+
+                <p>
+                    Concentrating Collector
+                </p>
+
+                <button
+                    class="open-btn"
+                    type="button">
+
+                    Open Simulation
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FRESNEL -->
+
+           <div class="collector-card"
+               data-model="fresnel">
+
+              <img src="assets/images/fresnel.jpg" alt="Fresnel Collector">
+
+            <div class="card-content">
+
+                <h3>
+                    Fresnel Collector
+                </h3>
+
+                <p>
+                    Linear Concentrator
+                </p>
+
+                <button
+                    class="open-btn"
+                    type="button">
+
+                    Open Simulation
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CPC -->
+
+           <div class="collector-card"
+               data-model="cpc">
+
+              <img src="assets/images/cpc.jpg" alt="Compound Parabolic Collector">
+
+            <div class="card-content">
+
+                <h3>
+                    Compound Parabolic
+                </h3>
+
+                <p>
+                    High Thermal Output
+                </p>
+
+                <button
+                    class="open-btn"
+                    type="button">
+
+                    Open Simulation
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- HEAT PIPE -->
+
+           <div class="collector-card"
+               data-model="heatpipe">
+
+              <img src="assets/images/heatpipe.jpg" alt="Heat Pipe Collector">
+
+            <div class="card-content">
+
+                <h3>
+                    Heat Pipe Collector
+                </h3>
+
+                <p>
+                    Vacuum Technology
+                </p>
+
+                <button
+                    class="open-btn"
+                    type="button">
+
+                    Open Simulation
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- THERMOSYPHON -->
+
+           <div class="collector-card"
+               data-model="thermosyphon">
+
+              <img src="assets/images/thermosyphon.jpg" alt="Thermosyphon System">
+
+            <div class="card-content">
+
+                <h3>
+                    Thermosyphon System
+                </h3>
+
+                <p>
+                    Natural Circulation
+                </p>
+
+                <button
+                    class="open-btn"
+                    type="button">
+
+                    Open Simulation
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- STORAGE -->
+
+           <div class="collector-card"
+               data-model="storage">
+
+              <img src="assets/images/storage.jpg" alt="Integrated Storage Collector">
+
+            <div class="card-content">
+
+                <h3>
+                    Integrated Storage
+                </h3>
+
+                <p>
+                    Solar Water Heating
+                </p>
+
+                <button
+                    class="open-btn"
+                    type="button">
+
+                    Open Simulation
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- UNGLAZED -->
+
+           <div class="collector-card"
+               data-model="unglazed">
+
+              <img src="assets/images/unglazed.jpg" alt="Unglazed Collector">
+
+            <div class="card-content">
+
+                <h3>
+                    Unglazed Collector
+                </h3>
+
+                <p>
+                    Pool Heating System
+                </p>
+
+                <button
+                    class="open-btn"
+                    type="button">
+
+                    Open Simulation
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+                    SIMULATION POPUP
+========================================================= -->
+
+<div
+    id="collectorModal"
+    class="collector-modal"
+    aria-hidden="true">
+
+
+    <div class="collector-modal-content">
+
+
+        <button
+            id="closeCollector"
+            class="close-modal"
+            type="button"
+            aria-label="Close">
+
+            &times;
+
+        </button>
+
+
+        <h2 id="collectorTitle">
+            Collector Name
+        </h2>
+
+
+        <div class="collector-body">
+
+
+            <!-- NORMAL IMAGE -->
+
+            <div class="collector-preview">
+
+                <button id="prevCollector" class="collector-nav prev" type="button" aria-label="Previous collector">&#10094;</button>
+                <img
+                    id="collectorImage"
+                    src=""
+                    alt="Solar Collector">
+                <button id="nextCollector" class="collector-nav next" type="button" aria-label="Next collector">&#10095;</button>
+
+                <div class="collector-caption">
+                    <span id="collectorCaption">Collector image</span>
+                </div>
+
+            </div>
+
+
+            <!-- PARAMETERS -->
+
+            <div class="collector-control">
+
+                <h3>
+                    Simulation Parameters
+                </h3>
+
+
+                <!-- LOCATION -->
+
+                <div class="location-section">
+
+                    <label for="modalLocation">
+                        Location
+                    </label>
+
+                    <select id="modalLocation">
+
+                        <option value="Hyderabad">
+                            Hyderabad
+                        </option>
+
+                        <option value="Bengaluru">
+                            Bengaluru
+                        </option>
+
+                        <option value="Chennai">
+                            Chennai
+                        </option>
+
+                        <option value="Mumbai">
+                            Mumbai
+                        </option>
+
+                        <option value="Delhi">
+                            Delhi
+                        </option>
+
+                        <option value="Pune">
+                            Pune
+                        </option>
+
+                        <option value="Ahmedabad">
+                            Ahmedabad
+                        </option>
+
+                        <option value="Kolkata">
+                            Kolkata
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- IRRADIANCE -->
+
+                <div class="modal-parameter">
+
+                    <div class="parameter-heading">
+
+                        <label for="modalIrradiance">
+                            Solar Irradiance
+                        </label>
+
+                        <span id="modalIrradianceValue">
+                            1000 W/m²
+                        </span>
+
+                    </div>
+
+                    <input
+                        id="modalIrradiance"
+                        type="range"
+                        min="300"
+                        max="1200"
+                        step="1"
+                        value="1000">
+
+                </div>
+
+
+                <!-- CLOUD -->
+
+                <div class="modal-parameter">
+
+                    <div class="parameter-heading">
+
+                        <label for="modalCloud">
+                            Cloud Cover
+                        </label>
+
+                        <span id="modalCloudValue">
+                            20%
+                        </span>
+
+                    </div>
+
+                    <input
+                        id="modalCloud"
+                        type="range"
+                        min="0"
+                        max="100"
+                        step="1"
+                        value="20">
+
+                </div>
+
+
+                <!-- TILT -->
+
+                <div class="modal-parameter">
+
+                    <div class="parameter-heading">
+
+                        <label for="modalTilt">
+                            Tilt Angle
+                        </label>
+
+                        <span id="modalTiltValue">
+                            30°
+                        </span>
+
+                    </div>
+
+                    <input
+                        id="modalTilt"
+                        type="range"
+                        min="0"
+                        max="90"
+                        step="1"
+                        value="30">
+
+                </div>
+
+
+                <!-- AZIMUTH -->
+
+                <div class="modal-parameter">
+
+                    <div class="parameter-heading">
+
+                        <label for="modalAzimuth">
+                            Azimuth Angle
+                        </label>
+
+                        <span id="modalAzimuthValue">
+                            180°
+                        </span>
+
+                    </div>
+
+                    <input
+                        id="modalAzimuth"
+                        type="range"
+                        min="0"
+                        max="360"
+                        step="1"
+                        value="180">
+
+                </div>
+
+
+                <!-- FLOW -->
+
+                <div class="modal-parameter">
+
+                    <div class="parameter-heading">
+
+                        <label for="modalFlow">
+                            Flow Rate
+                        </label>
+
+                        <span id="modalFlowValue">
+                            2.0 L/min
+                        </span>
+
+                    </div>
+
+                    <input
+                        id="modalFlow"
+                        type="range"
+                        min="1"
+                        max="10"
+                        step="0.1"
+                        value="2">
+
+                </div>
+
+
+                <!-- AREA -->
+
+                <div class="modal-parameter">
+
+                    <div class="parameter-heading">
+
+                        <label for="modalArea">
+                            Collector Area
+                        </label>
+
+                        <span id="modalAreaValue">
+                            5.0 m²
+                        </span>
+
+                    </div>
+
+                    <input
+                        id="modalArea"
+                        type="range"
+                        min="1"
+                        max="20"
+                        step="0.1"
+                        value="5">
+
+                </div>
+
+
+                <!-- RUN -->
+
+                <button
+                    id="runCollectorSimulation"
+                    type="button">
+
+                    <i class="fa-solid fa-play"></i>
+
+                    Run Simulation
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+                         RESULTS
+        ================================================= -->
+
+        <div class="collector-results">
+
+
+            <div class="result-card">
+
+                <h4>
+                    Efficiency
+                </h4>
+
+                <span id="modalEfficiency">
+                    0%
+                </span>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h4>
+                    Output Power
+                </h4>
+
+                <span id="modalPower">
+                    0 W
+                </span>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h4>
+                    Useful Heat Gain
+                </h4>
+
+                <span id="modalHeat">
+                    0 W
+                </span>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h4>
+                    Outlet Temperature
+                </h4>
+
+                <span id="modalTemperature">
+                    0 °C
+                </span>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h4>
+                    Heat Loss
+                </h4>
+
+                <span id="modalLoss">
+                    0 W
+                </span>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h4>
+                    CO₂ Reduction
+                </h4>
+
+                <span id="modalCO2">
+                    0 kg
+                </span>
+
+            </div>
+
+
+
+
+    </div>
+
+</div>
+
+<script src="js/simulation.js"></script>
+</body>
+</html>
+

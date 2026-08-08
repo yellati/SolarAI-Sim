@@ -1,0 +1,1209 @@
+/* =========================================================
+   SOLARAI SIM - AI OPTIMIZATION PAGE
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #172033;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+
+    --primary: #f59e0b;
+    --primary-dark: #d97706;
+
+    --success: #16a34a;
+
+    --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+    --radius: 18px;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   HEADER
+   SAME SIZE / STRUCTURE AS EDUCATION PAGE
+========================================================= */
+
+.navbar {
+    width: 100%;
+
+    height: 76px;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    padding: 0 5.7%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.navbar .logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    justify-self: start;
+
+    color: #111111;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition: color 0.3s ease;
+}
+
+.navbar .logo i {
+    font-size: 28px;
+
+    color: #111111;
+
+    transition: color 0.3s ease;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar .nav-links {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 36px;
+
+    margin: 0;
+
+    padding: 0;
+
+    white-space: nowrap;
+}
+
+.navbar .nav-links a {
+    position: relative;
+
+    display: inline-block;
+
+    padding: 27px 0 25px;
+
+    text-decoration: none;
+
+    color: #111111;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: var(--primary-dark);
+}
+
+
+/* =========================================================
+   ACTIVE OPTIMIZATION PAGE
+========================================================= */
+
+.navbar .nav-links a.active {
+    color: var(--primary-dark);
+}
+
+.navbar .nav-links a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 16px;
+
+    height: 2px;
+
+    background: var(--primary-dark);
+}
+
+
+/* =========================================================
+   THEME BUTTON
+   FAR RIGHT
+========================================================= */
+
+.theme-button,
+#themeButton {
+    justify-self: end;
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #111111;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    font-size: 23px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.theme-button:hover,
+#themeButton:hover {
+    transform: scale(1.08);
+}
+
+#themeIcon {
+    font-size: 23px;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode {
+    --bg: #111111;
+
+    --card: #1b1b1b;
+
+    --text: #ffffff;
+
+    --muted: #bdbdbd;
+
+    --border: #333333;
+
+    --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+
+    background: #111111;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   DARK HEADER
+========================================================= */
+
+body.dark-mode .navbar {
+    background: #1b1b1b;
+
+    border-bottom-color: #333333;
+}
+
+
+/* =========================================================
+   DARK LOGO
+========================================================= */
+
+body.dark-mode .navbar .logo {
+    color: #ffffff;
+}
+
+body.dark-mode .navbar .logo i {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   DARK NAVIGATION
+========================================================= */
+
+body.dark-mode .navbar .nav-links a {
+    color: #ffffff;
+}
+
+body.dark-mode .navbar .nav-links a:hover {
+    color: #f59e0b;
+}
+
+body.dark-mode .navbar .nav-links a.active {
+    color: #f59e0b;
+}
+
+body.dark-mode .navbar .nav-links a.active::after {
+    background: #f59e0b;
+}
+
+
+/* =========================================================
+   DARK THEME ICON
+========================================================= */
+
+body.dark-mode .theme-button,
+body.dark-mode #themeButton {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.optimization-page {
+    width: min(1200px, 92%);
+
+    margin: 0 auto;
+
+    padding: 55px 0 80px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.section-label {
+    display: inline-block;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: var(--primary-dark);
+
+    margin-bottom: 12px;
+}
+
+.page-header h1 {
+    font-size: clamp(32px, 5vw, 52px);
+
+    line-height: 1.1;
+
+    margin-bottom: 16px;
+}
+
+.page-header p {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 28px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.card-title {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+}
+
+.card-title .icon {
+    width: 44px;
+
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #fff7ed;
+
+    border-radius: 12px;
+
+    font-size: 21px;
+}
+
+.card-title h2 {
+    font-size: 20px;
+
+    margin-bottom: 5px;
+}
+
+.card-title p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.location-card {
+    margin-bottom: 24px;
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   INPUT GRID
+========================================================= */
+
+.input-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #374151;
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.form-group label span {
+    color: var(--muted);
+
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    height: 48px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: var(--text);
+
+    padding: 0 14px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(245, 158, 11, 0.12);
+}
+
+
+/* =========================================================
+   DARK FORM
+========================================================= */
+
+body.dark-mode .form-group label {
+    color: #ffffff;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select {
+    background: #222222;
+
+    color: #ffffff;
+
+    border-color: #444444;
+}
+
+body.dark-mode .form-group input::placeholder {
+    color: #999999;
+}
+
+body.dark-mode .form-group select option {
+    background: #222222;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   LOCATION SEARCH
+========================================================= */
+
+.location-results {
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    top: 78px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    z-index: 50;
+}
+
+.location-result {
+    padding: 12px 14px;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid #f1f1f1;
+
+    transition: 0.2s ease;
+}
+
+.location-result:last-child {
+    border-bottom: none;
+}
+
+.location-result:hover {
+    background: #fff7ed;
+}
+
+.location-result strong {
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 3px;
+}
+
+.location-result span {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   DARK LOCATION SEARCH
+========================================================= */
+
+body.dark-mode .location-results {
+    background: #1b1b1b;
+
+    border-color: #333333;
+}
+
+body.dark-mode .location-result {
+    border-bottom-color: #333333;
+}
+
+body.dark-mode .location-result:hover {
+    background: #292929;
+}
+
+body.dark-mode .location-result strong {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.secondary-btn {
+    border: 1px solid var(--primary);
+
+    background: #fff7ed;
+
+    color: var(--primary-dark);
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.secondary-btn:hover {
+    background: #ffedd5;
+}
+
+.optimize-section {
+    text-align: center;
+
+    padding: 10px 0 45px;
+}
+
+.optimize-btn {
+    border: none;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    padding: 16px 34px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(245, 158, 11, 0.25);
+
+    transition: 0.25s ease;
+}
+
+.optimize-btn:hover {
+    background: var(--primary-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(245, 158, 11, 0.30);
+}
+
+.optimize-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status-message {
+    min-height: 22px;
+
+    margin-top: 12px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+.hidden {
+    display: none;
+}
+
+.results-section {
+    animation: fadeIn 0.5s ease;
+}
+
+.section-heading {
+    margin: 25px 0 22px;
+}
+
+.section-heading h2 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: var(--muted);
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   RESULT GRID
+========================================================= */
+
+.result-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 48px;
+}
+
+.result-card {
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 24px;
+
+    box-shadow: var(--shadow);
+
+    text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-3px);
+}
+
+.result-icon {
+    font-size: 26px;
+
+    margin-bottom: 14px;
+}
+
+.result-card span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+}
+
+.result-card strong {
+    display: block;
+
+    font-size: 32px;
+
+    color: var(--text);
+
+    margin-bottom: 5px;
+}
+
+.result-card small {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   DARK RESULT CARDS
+========================================================= */
+
+body.dark-mode .result-card {
+    background: #1b1b1b;
+
+    border-color: #333333;
+}
+
+
+/* =========================================================
+   PERFORMANCE
+========================================================= */
+
+.performance-heading {
+    margin-top: 20px;
+}
+
+.performance-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 48px;
+}
+
+.performance-card {
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.performance-card span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+}
+
+.performance-card strong {
+    font-size: 22px;
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   DARK PERFORMANCE
+========================================================= */
+
+body.dark-mode .performance-card {
+    background: #1b1b1b;
+
+    border-color: #333333;
+}
+
+
+/* =========================================================
+   MONTHLY ENERGY
+========================================================= */
+
+.monthly-energy {
+    margin-bottom: 24px;
+}
+
+.annual-energy {
+    background: #fff7ed;
+
+    border: 1px solid #fed7aa;
+
+    border-radius: 14px;
+
+    padding: 18px 20px;
+
+    margin-bottom: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.annual-energy span {
+    color: #7c2d12;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.annual-energy strong {
+    font-size: 28px;
+
+    color: var(--primary-dark);
+}
+
+.annual-energy small {
+    color: var(--muted);
+}
+
+.chart-container {
+    position: relative;
+
+    width: 100%;
+
+    height: 380px;
+}
+
+
+/* =========================================================
+   DARK MONTHLY ENERGY
+========================================================= */
+
+body.dark-mode .annual-energy {
+    background: #29200f;
+
+    border-color: #6b4a12;
+}
+
+body.dark-mode .annual-energy span {
+    color: #fbbf24;
+}
+
+
+/* =========================================================
+   AI SUMMARY
+========================================================= */
+
+.ai-summary {
+    margin-bottom: 30px;
+}
+
+#aiRecommendationText {
+    background: #f9fafb;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 22px;
+
+    color: #374151;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   DARK AI SUMMARY
+========================================================= */
+
+body.dark-mode #aiRecommendationText {
+    background: #222222;
+
+    color: #e5e7eb;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .result-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .performance-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid .form-group:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .navbar {
+        height: auto;
+
+        min-height: 76px;
+
+        grid-template-columns: 1fr auto;
+
+        padding: 12px 5%;
+    }
+
+    .navbar .nav-links {
+        grid-column: 1 / -1;
+
+        grid-row: 2;
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 18px;
+
+        flex-wrap: wrap;
+
+        padding: 8px 0;
+    }
+
+    .navbar .nav-links a {
+        padding: 6px 0;
+
+        font-size: 15px;
+    }
+
+    .navbar .nav-links a.active::after {
+        bottom: 0;
+    }
+
+    .optimization-page {
+        width: 92%;
+
+        padding-top: 35px;
+    }
+
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid .form-group:first-child {
+        grid-column: auto;
+    }
+
+    .result-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .performance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-container {
+        height: 300px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .navbar .logo {
+        font-size: 21px;
+    }
+
+    .navbar .logo i {
+        font-size: 22px;
+    }
+
+    .navbar .nav-links {
+        gap: 16px;
+    }
+
+    .navbar .nav-links a {
+        font-size: 14px;
+    }
+
+    .theme-button,
+    #themeButton {
+        width: 36px;
+
+        height: 36px;
+    }
+
+    #themeIcon {
+        font-size: 20px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .page-header h1 {
+        font-size: 32px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .performance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .optimize-btn {
+        width: 100%;
+    }
+
+    .annual-energy {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}

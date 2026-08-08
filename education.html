@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SolarAI Sim - Education</title>
+
+    <link rel="stylesheet" href="css/education.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-sun"></i>
+            <span>SolarAI Sim</span>
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="simulation.html">
+                Simulation
+            </a>
+
+            <a href="education.html" class="active">
+                Education
+            </a>
+
+            <a href="optimization.html">
+                AI Optimization
+            </a>
+
+        </nav>
+
+        <button
+            id="themeButton"
+            class="theme-button"
+            type="button">
+
+            <i
+                id="themeIcon"
+                class="fa-solid fa-sun">
+            </i>
+
+        </button>
+
+    </header>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="education-intro">
+
+        <h1>
+            Different Solar Collectors
+        </h1>
+
+        <p>
+            Explore different types of solar collectors,
+            their working principles, applications,
+            and key characteristics.
+        </p>
+
+    </section>
+
+
+    <!-- ================= COLLECTOR SECTION ================= -->
+
+    <main class="collector-container">
+
+
+        <!-- 1. FLAT PLATE -->
+
+        <article
+            class="education-card"
+            data-collector="flatplate">
+
+            <div class="image-container">
+
+            <img src="assets/images/flatplate.jpg" alt="Flat Plate Collector">
+
+            </div>
+
+            <div class="card-content">
+
+                <h2>
+                    Flat Plate Collector
+                </h2>
+
+                <p>
+                    A flat plate collector uses an absorber
+                    plate to capture solar radiation and
+                    transfer the heat to a circulating fluid.
+                    It is commonly used for domestic hot water
+                    and low-temperature heating.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 2. EVACUATED TUBE -->
+
+        <article
+            class="education-card"
+            data-collector="evacuated">
+
+            <div class="image-container">
+            <img src="assets/images/evacuated.jpg" alt="Evacuated Tube Collector">
+
+            </div>
+
+            <div class="card-content">
+
+                <h2>
+                    Evacuated Tube Collector
+                </h2>
+
+                <p>
+                    An evacuated tube collector uses vacuum
+                    insulation around the absorber to reduce
+                    heat loss. It provides high thermal
+                    performance and is suitable for hot-water
+                    and heating applications.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 3. PARABOLIC -->
+
+        <article
+            class="education-card"
+            data-collector="parabolic">
+
+            <div class="image-container">
+
+            <img src="assets/images/parabolic.jpg" alt="Parabolic Trough">
+
+            </div>
+
+            <div class="card-content">
+
+                <h2>
+                    Parabolic Trough
+                </h2>
+
+                <p>
+                    A parabolic trough uses curved reflective
+                    mirrors to concentrate sunlight onto a
+                    receiver tube. It is commonly used for
+                    high-temperature solar thermal applications.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 4. FRESNEL -->
+
+        <article
+            class="education-card"
+            data-collector="fresnel">
+
+            <div class="image-container">
+
+                <img src="assets/images/fresnel.jpg" alt="Fresnel Collector">
+
+            </div>
+
+            <div class="card-content">
+
+                <h2>
+                    Linear Fresnel Collector
+                </h2>
+
+                <p>
+                    A Linear Fresnel collector uses multiple
+                    mirror strips to reflect and concentrate
+                    sunlight onto a fixed receiver. It can be
+                    used for industrial heat and steam generation.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 5. CPC -->
+
+        <article
+            class="education-card"
+            data-collector="cpc">
+
+            <div class="image-container">
+
+                <img src="assets/images/cpc.jpg" alt="Compound Parabolic Collector">
+
+            </div>
+
+            <div class="card-content">
+
+                <h2>
+                    Compound Parabolic Collector
+                </h2>
+
+                <p>
+                    A compound parabolic collector uses
+                    reflective surfaces to collect sunlight
+                    over a range of incoming angles and
+                    concentrate it toward an absorber.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 6. HEAT PIPE -->
+
+        <article
+            class="education-card"
+            data-collector="heatpipe">
+
+            <div class="image-container">
+
+                <img src="assets/images/heatpipe.jpg" alt="Heat Pipe Collector">
+
+            </div>
+
+            <div class="card-content">
+
+                <h2>
+                    Heat Pipe Collector
+                </h2>
+
+                <p>
+                    A heat pipe collector transfers thermal
+                    energy through sealed heat pipes using
+                    evaporation and condensation. It is useful
+                    for efficient solar heat transfer.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 7. THERMOSYPHON -->
+
+        <article
+            class="education-card"
+            data-collector="thermosyphon">
+
+            <div class="image-container">
+
+                <img src="assets/images/thermosyphon.jpg" alt="Thermosyphon System">
+                
+
+            </div>
+
+            <div class="card-content">
+
+                <h2>
+                    Thermosyphon System
+                </h2>
+
+                <p>
+                    A thermosyphon system uses natural
+                    circulation caused by temperature and
+                    density differences. It is commonly used
+                    for domestic solar water heating.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 8. STORAGE -->
+
+        <article
+            class="education-card"
+            data-collector="storage">
+
+            <div class="image-container">
+
+                <img src="assets/images/storage.jpg" alt="Integrated Storage Collector">
+            </div>
+
+            <div class="card-content">
+
+                <h2>
+                    Integrated Storage Collector
+                </h2>
+
+                <p>
+                    An integrated storage collector combines
+                    solar heat collection and thermal storage
+                    in one system. This makes it useful for
+                    compact solar water-heating systems.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 9. UNGLAZED -->
+
+        <article
+            class="education-card"
+            data-collector="unglazed">
+
+            <div class="image-container">
+
+                <img src="assets/images/unglazed.jpg" alt="Unglazed Collector">
+
+            </div>
+
+            <div class="card-content">
+
+                <h2>
+                    Unglazed Collector
+                </h2>
+
+                <p>
+                    An unglazed collector does not use a glass
+                    cover and is generally designed for
+                    low-temperature applications such as
+                    swimming-pool heating.
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <!-- ================= AI FLOATING BUTTON ================= -->
+
+    <button
+        id="aiButton"
+        class="ai-floating-button"
+        type="button"
+        aria-label="Open Solar AI">
+
+        <i class="fa-solid fa-robot"></i>
+
+        <span>
+            AI
+        </span>
+
+    </button>
+
+
+    <!-- ================= AI CHAT WINDOW ================= -->
+
+    <div
+        id="chatbot"
+        class="chatbot"
+        aria-hidden="true">
+
+        <div class="chat-header">
+
+            <div>
+
+                <i class="fa-solid fa-robot"></i>
+
+                <span>
+                    AI Assistant
+                </span>
+
+            </div>
+
+            <button
+                id="closeChat"
+                type="button">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="chatMessages"
+            class="chat-messages">
+
+            <div class="bot-message">
+
+                Hello! 👋
+
+                <br><br>
+
+                I can explain the different solar
+                collectors on this page.
+
+                <br><br>
+
+                Ask me about a collector or
+                select a card.
+
+            </div>
+
+        </div>
+
+
+        <div class="chat-input-area">
+
+            <input
+                id="chatInput"
+                type="text"
+                placeholder="Ask about a solar collector..."
+                autocomplete="off">
+
+            <button
+                id="sendMessage"
+                type="button">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/education.js"></script>
+
+</body>
+
+</html>

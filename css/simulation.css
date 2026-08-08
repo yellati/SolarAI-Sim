@@ -1,0 +1,1206 @@
+/* ==========================================
+   SOLARAI SIM V2
+   simulation.css
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* ==========================================
+   PAGE
+========================================== */
+
+html,
+body {
+    width: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    background: #f4f7fb;
+    color: #222;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar {
+    width: 100%;
+    height: 82px;
+    min-height: 82px;
+
+    background: #ffffff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 70px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 999;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    white-space: nowrap;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    color: #2563eb;
+}
+
+.logo i {
+    margin: 0;
+
+    color: #ff9800;
+
+    font-size: 32px;
+}
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 42px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    position: relative;
+
+    display: inline-block;
+
+    padding: 29px 0 25px;
+
+    text-decoration: none;
+
+    color: #222;
+
+    font-size: 20px;
+
+    line-height: 1.2;
+
+    font-weight: 600;
+
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #f59e0b;
+}
+
+
+/* ==========================================
+   ACTIVE SIMULATION PAGE
+========================================== */
+
+.nav-links a.active {
+    color: #f59e0b;
+}
+
+.nav-links a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 15px;
+
+    height: 2px;
+
+    background: #f59e0b;
+
+    border-radius: 2px;
+}
+
+
+/* ==========================================
+   THEME BUTTON
+========================================== */
+
+#themeButton {
+    width: 56px;
+    height: 56px;
+
+    min-width: 56px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #2563eb;
+
+    color: #ffb000;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+#themeButton:hover {
+    background: #1d4ed8;
+
+    transform: scale(1.05);
+}
+
+#themeButton i {
+    margin: 0;
+}
+
+
+/* ==========================================
+   PAGE TITLE
+========================================== */
+
+.page-title {
+    width: 100%;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+.page-title h1 {
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+.page-title p {
+    color: #666;
+}
+
+
+/* ==========================================
+   FULL WIDTH DASHBOARD
+========================================== */
+
+.dashboard-container {
+    width: 100%;
+    max-width: none;
+
+    margin: 30px 0;
+
+    padding: 0 70px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* ==========================================
+   DASHBOARD BOX
+========================================== */
+
+.dashboard-box {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.dashboard-box h2 {
+    margin-bottom: 25px;
+
+    color: #2563eb;
+}
+
+.dashboard-box i {
+    margin-right: 10px;
+}
+
+
+/* ==========================================
+   PARAMETERS
+========================================== */
+
+.parameter {
+    margin-bottom: 22px;
+}
+
+.parameter label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+}
+
+.parameter input {
+    width: 100%;
+}
+
+.parameter span {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #2563eb;
+
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   RANGE
+========================================== */
+
+input[type="range"] {
+    width: 100%;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   RESULT GRID
+========================================== */
+
+.result-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+/* ==========================================
+   RESULT CARD
+========================================== */
+
+.dashboard-card {
+    background: #f8fafc;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-card h3 {
+    font-size: 17px;
+
+    color: #555;
+
+    margin-bottom: 10px;
+}
+
+.dashboard-card span {
+    font-size: 24px;
+
+    color: #2563eb;
+
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   FULL WIDTH COLLECTOR LIBRARY
+========================================== */
+
+.collector-section {
+    width: 100%;
+    max-width: none;
+
+    margin: 50px 0;
+
+    padding: 0 70px;
+}
+
+.collector-section h2 {
+    text-align: center;
+
+    font-size: 36px;
+
+    margin-bottom: 35px;
+
+    color: #2563eb;
+}
+
+
+/* ==========================================
+   COLLECTOR GRID
+========================================== */
+
+.collector-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 30px;
+}
+
+
+/* ==========================================
+   COLLECTOR CARD
+========================================== */
+
+.collector-card {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.10);
+
+    transition: 0.35s;
+
+    cursor: pointer;
+}
+
+.collector-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.collector-card img {
+    width: 100%;
+
+    height: 240px;
+
+    object-fit: contain;
+
+    background: #f5f7fb;
+
+    padding: 20px;
+}
+
+
+/* ==========================================
+   CARD CONTENT
+========================================== */
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: #666;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==========================================
+   OPEN BUTTON
+========================================== */
+
+.open-btn {
+    width: 100%;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.open-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* ==========================================
+   POPUP
+========================================== */
+
+.collector-modal {
+    display: none;
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.collector-modal-content {
+    width: 92%;
+
+    max-width: 1200px;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    max-height: 90vh;
+
+    overflow: auto;
+
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+
+    right: 25px;
+
+    top: 20px;
+
+    font-size: 35px;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   COLLECTOR BODY
+========================================== */
+
+.collector-body {
+    display: grid;
+
+    grid-template-columns: 420px 1fr;
+
+    gap: 30px;
+
+    margin-top: 25px;
+}
+
+
+/* ==========================================
+   IMAGE PREVIEW
+========================================== */
+
+.collector-preview {
+    width: 100%;
+
+    height: 420px;
+
+    background: #f5f7fb;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.collector-preview img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* ==========================================
+   IMAGE NAVIGATION
+========================================== */
+
+.collector-nav {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 44px;
+
+    height: 44px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.48);
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background 0.2s ease;
+}
+
+.collector-nav:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.collector-nav.prev {
+    left: 16px;
+}
+
+.collector-nav.next {
+    right: 16px;
+}
+
+.collector-caption {
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    padding: 12px 18px;
+
+    background: rgba(0, 0, 0, 0.42);
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    text-align: center;
+
+    backdrop-filter: blur(6px);
+}
+
+
+/* ==========================================
+   RIGHT PANEL
+========================================== */
+
+.collector-control {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.collector-control label {
+    margin-top: 12px;
+
+    margin-bottom: 5px;
+
+    font-weight: 600;
+}
+
+.collector-control input {
+    width: 100%;
+
+    height: 45px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 10px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.collector-control input:focus {
+    border-color: #2563eb;
+}
+
+.collector-control button {
+    margin-top: 20px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+.collector-control button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ==========================================
+   RESULTS
+========================================== */
+
+.collector-results {
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(170px, 1fr));
+
+    gap: 20px;
+}
+
+.result-card {
+    background: #f8fafc;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.result-card h4 {
+    margin-bottom: 10px;
+}
+
+.result-card span {
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: #2563eb;
+}
+
+
+/* ==========================================
+   DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #0f172a;
+
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   DARK NAVBAR
+========================================== */
+
+body.dark-mode .navbar {
+    background: #1a1a1a;
+
+    border-bottom: 1px solid #333333;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .logo {
+    color: #ffffff;
+}
+
+body.dark-mode .logo i {
+    color: #ffffff;
+}
+
+body.dark-mode .nav-links a {
+    color: #ffffff;
+}
+
+body.dark-mode .nav-links a:hover {
+    color: #f59e0b;
+}
+
+body.dark-mode .nav-links a.active {
+    color: #f59e0b;
+}
+
+body.dark-mode .nav-links a.active::after {
+    background: #f59e0b;
+}
+
+body.dark-mode #themeButton {
+    background: #000000;
+
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   DARK PAGE TITLE
+========================================== */
+
+body.dark-mode .page-title p {
+    color: #cbd5e1;
+}
+
+
+/* ==========================================
+   DARK DASHBOARD
+========================================== */
+
+body.dark-mode .dashboard-box {
+    background: #1e293b;
+
+    color: #ffffff;
+}
+
+body.dark-mode .dashboard-box h2 {
+    color: #60a5fa;
+}
+
+body.dark-mode .dashboard-card {
+    background: #334155;
+
+    color: #ffffff;
+}
+
+body.dark-mode .dashboard-card h3 {
+    color: #cbd5e1;
+}
+
+body.dark-mode .dashboard-card span {
+    color: #60a5fa;
+}
+
+
+/* ==========================================
+   DARK COLLECTOR
+========================================== */
+
+body.dark-mode .collector-card {
+    background: #1e293b;
+
+    color: #ffffff;
+}
+
+body.dark-mode .collector-card img {
+    background: #334155;
+}
+
+body.dark-mode .card-content p {
+    color: #cbd5e1;
+}
+
+body.dark-mode .collector-modal-content {
+    background: #1e293b;
+
+    color: #ffffff;
+}
+
+body.dark-mode .collector-preview {
+    background: #334155;
+}
+
+
+/* ==========================================
+   DARK INPUT
+========================================== */
+
+body.dark-mode input {
+    background: #0f172a;
+
+    color: #ffffff;
+
+    border: 1px solid #475569;
+}
+
+body.dark-mode input::placeholder {
+    color: #94a3b8;
+}
+
+body.dark-mode .collector-control input {
+    background: #0f172a;
+
+    color: #ffffff;
+
+    border-color: #475569;
+}
+
+
+/* ==========================================
+   DARK RESULT
+========================================== */
+
+body.dark-mode .result-card {
+    background: #334155;
+
+    color: #ffffff;
+}
+
+body.dark-mode .result-card span {
+    color: #60a5fa;
+}
+
+
+/* ==========================================
+   RESPONSIVE - TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    .collector-body {
+        grid-template-columns: 1fr;
+    }
+
+    .collector-preview {
+        height: 320px;
+    }
+}
+
+
+/* ==========================================
+   RESPONSIVE - 768px
+========================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        min-height: 78px;
+
+        height: auto;
+
+        padding: 14px 24px;
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .logo i {
+        font-size: 27px;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        order: 3;
+
+        gap: 22px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .nav-links a {
+        padding: 8px 0;
+
+        font-size: 16px;
+    }
+
+    .nav-links a.active::after {
+        bottom: 0;
+    }
+
+    #themeButton {
+        width: 46px;
+
+        height: 46px;
+
+        min-width: 46px;
+
+        font-size: 21px;
+    }
+
+    .dashboard-container,
+    .collector-section {
+        padding-left: 24px;
+
+        padding-right: 24px;
+    }
+
+    .collector-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .collector-results {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .collector-modal-content {
+        width: 94%;
+
+        padding: 22px;
+    }
+}
+
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+========================================== */
+
+@media (max-width: 500px) {
+
+    .navbar {
+        padding: 14px 18px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .logo i {
+        font-size: 23px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    #themeButton {
+        width: 42px;
+
+        height: 42px;
+
+        min-width: 42px;
+
+        font-size: 19px;
+    }
+
+    .dashboard-container,
+    .collector-section {
+        padding-left: 18px;
+
+        padding-right: 18px;
+    }
+
+    .collector-results {
+        grid-template-columns: 1fr;
+    }
+
+    .page-title {
+        padding: 30px 18px;
+    }
+
+    .page-title h1 {
+        font-size: 28px;
+    }
+
+    .dashboard-box {
+        padding: 20px;
+    }
+
+    .collector-modal-content {
+        width: 96%;
+
+        padding: 18px;
+    }
+
+    .collector-preview {
+        height: 260px;
+    }
+}
+/* ==========================================
+   FORCE FULL WIDTH SIMULATION PAGE
+========================================== */
+
+html,
+body {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================================
+   FULL WIDTH NAVBAR
+========================================== */
+
+body .navbar {
+    width: 100vw !important;
+    max-width: none !important;
+
+    height: 82px !important;
+    min-height: 82px !important;
+
+    margin: 0 !important;
+
+    padding: 0 70px !important;
+
+    position: sticky;
+    top: 0;
+
+    left: 0;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+/* ==========================================
+   FULL WIDTH SIMULATION SECTIONS
+========================================== */
+
+body .page-title {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+}
+
+
+body .dashboard-container {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 30px 0 !important;
+
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+
+    box-sizing: border-box;
+}
+
+
+body .collector-section {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 50px 0 !important;
+
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+
+    box-sizing: border-box;
+}

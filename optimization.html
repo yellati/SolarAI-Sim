@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SolarAI Sim - AI Optimization</title>
+
+    <!-- Optimization CSS -->
+    <link rel="stylesheet"
+          href="css/optimization.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-sun"></i>
+
+            <span>
+                SolarAI Sim
+            </span>
+
+        </div>
+
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="simulation.html">
+                Simulation
+            </a>
+
+            <a href="education.html">
+                Education
+            </a>
+
+            <a href="optimization.html"
+               class="active">
+
+                AI Optimization
+
+            </a>
+
+        </nav>
+
+
+        <button
+            id="themeButton"
+            class="theme-button"
+            type="button">
+
+            <i
+                id="themeIcon"
+                class="fa-solid fa-sun">
+            </i>
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="optimization-page">
+
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+
+        <section class="page-header">
+
+            <span class="section-label">
+                AI POWERED SOLAR SYSTEM
+            </span>
+
+            <h1>
+                AI Solar Optimization
+            </h1>
+
+            <p>
+                Optimize your solar collector parameters
+                using real solar data and intelligent
+                recommendations.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LOCATION
+        ================================================== -->
+
+        <section class="card location-card">
+
+            <div class="card-title">
+
+                <div class="icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <h2>
+                        Location
+                    </h2>
+
+                    <p>
+                        Select the location for solar analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter city name"
+                        autocomplete="off"
+                    >
+
+                    <div
+                        id="locationResults"
+                        class="location-results">
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="latitude">
+                        Latitude
+                    </label>
+
+                    <input
+                        type="number"
+                        id="latitude"
+                        placeholder="Latitude"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="longitude">
+                        Longitude
+                    </label>
+
+                    <input
+                        type="number"
+                        id="longitude"
+                        placeholder="Longitude"
+                        step="any"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="getSolarDataBtn"
+                class="secondary-btn">
+
+                ☀️ Get Solar Data
+
+            </button>
+
+
+            <div
+                id="weatherStatus"
+                class="status-message">
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             INPUT PARAMETERS
+        ================================================== -->
+
+        <section class="input-grid">
+
+
+            <!-- SOLAR CONDITIONS -->
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    <div class="icon">
+                        ☀️
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Solar Conditions
+                        </h2>
+
+                        <p>
+                            Current solar and weather inputs.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="irradiance">
+
+                        Solar Irradiance
+
+                        <span>
+                            W/m²
+                        </span>
+
+                    </label>
+
+                    <input
+                        type="number"
+                        id="irradiance"
+                        value="800"
+                        min="0"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="cloudCover">
+
+                        Cloud Cover
+
+                        <span>
+                            %
+                        </span>
+
+                    </label>
+
+                    <input
+                        type="number"
+                        id="cloudCover"
+                        value="20"
+                        min="0"
+                        max="100"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- COLLECTOR SETTINGS -->
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    <div class="icon">
+                        🔧
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Collector Settings
+                        </h2>
+
+                        <p>
+                            Configure the solar collector.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="collectorType">
+                        Collector Type
+                    </label>
+
+                    <select id="collectorType">
+
+                        <option value="flatplate">
+                            Flat Plate
+                        </option>
+
+                        <option value="evacuated">
+                            Evacuated Tube
+                        </option>
+
+                        <option value="parabolic">
+                            Parabolic
+                        </option>
+
+                        <option value="fresnel">
+                            Fresnel
+                        </option>
+
+                        <option value="cpc">
+                            CPC
+                        </option>
+
+                        <option value="heatpipe">
+                            Heat Pipe
+                        </option>
+
+                        <option value="thermosyphon">
+                            Thermosyphon
+                        </option>
+
+                        <option value="storage">
+                            Storage
+                        </option>
+
+                        <option value="unglazed">
+                            Unglazed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="collectorArea">
+
+                        Collector Area
+
+                        <span>
+                            m²
+                        </span>
+
+                    </label>
+
+                    <input
+                        type="number"
+                        id="collectorArea"
+                        value="5"
+                        min="0.1"
+                        step="0.1"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OPTIMIZE BUTTON
+        ================================================== -->
+
+        <section class="optimize-section">
+
+            <button
+                type="button"
+                id="optimizeBtn"
+                class="optimize-btn">
+
+                ⚡ Optimize Solar System
+
+            </button>
+
+
+            <div
+                id="optimizationStatus"
+                class="status-message">
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             AI OPTIMIZATION RESULTS
+        ================================================== -->
+
+        <section
+            id="optimizationResults"
+            class="results-section hidden">
+
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    AI RECOMMENDATION
+                </span>
+
+                <h2>
+                    Optimized Parameters
+                </h2>
+
+                <p>
+                    Recommended operating parameters
+                    generated by the AI optimizer.
+                </p>
+
+            </div>
+
+
+
+            <div class="result-grid">
+
+
+                <!-- TILT -->
+
+                <div class="result-card">
+
+                    <div class="result-icon">
+                        ↗️
+                    </div>
+
+                    <span>
+                        Recommended Tilt
+                    </span>
+
+                    <strong id="recommendedTilt">
+                        --
+                    </strong>
+
+                    <small>
+                        degrees
+                    </small>
+
+                </div>
+
+
+
+                <!-- AZIMUTH -->
+
+                <div class="result-card">
+
+                    <div class="result-icon">
+                        🧭
+                    </div>
+
+                    <span>
+                        Recommended Azimuth
+                    </span>
+
+                    <strong id="recommendedAzimuth">
+                        --
+                    </strong>
+
+                    <small>
+                        degrees
+                    </small>
+
+                </div>
+
+
+
+                <!-- FLOW RATE -->
+
+                <div class="result-card">
+
+                    <div class="result-icon">
+                        💧
+                    </div>
+
+                    <span>
+                        Recommended Flow Rate
+                    </span>
+
+                    <strong id="recommendedFlow">
+                        --
+                    </strong>
+
+                    <small>
+                        L/min
+                    </small>
+
+                </div>
+
+
+
+                <!-- AREA -->
+
+                <div class="result-card">
+
+                    <div class="result-icon">
+                        📐
+                    </div>
+
+                    <span>
+                        Recommended Area
+                    </span>
+
+                    <strong id="recommendedArea">
+                        --
+                    </strong>
+
+                    <small>
+                        m²
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PREDICTED PERFORMANCE
+            ================================================== -->
+
+            <div class="section-heading performance-heading">
+
+                <span class="section-label">
+                    PREDICTED PERFORMANCE
+                </span>
+
+                <h2>
+                    System Performance
+                </h2>
+
+            </div>
+
+
+
+            <div class="performance-grid">
+
+
+                <div class="performance-card">
+
+                    <span>
+                        Efficiency
+                    </span>
+
+                    <strong id="performanceEfficiency">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="performance-card">
+
+                    <span>
+                        Output Power
+                    </span>
+
+                    <strong id="performancePower">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="performance-card">
+
+                    <span>
+                        Useful Heat
+                    </span>
+
+                    <strong id="performanceHeat">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="performance-card">
+
+                    <span>
+                        Heat Loss
+                    </span>
+
+                    <strong id="performanceLoss">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="performance-card">
+
+                    <span>
+                        CO₂ Reduction
+                    </span>
+
+                    <strong id="performanceCO2">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MONTHLY ENERGY
+            ================================================== -->
+
+            <section class="monthly-energy card">
+
+                <div class="card-title">
+
+                    <div class="icon">
+                        📈
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Monthly Energy Generation
+                        </h2>
+
+                        <p>
+                            Estimated energy generated
+                            by the optimized solar system.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="annual-energy">
+
+                    <span>
+                        Annual Energy Generation
+                    </span>
+
+                    <strong id="annualEnergy">
+                        --
+                    </strong>
+
+                    <small>
+                        kWh/year
+                    </small>
+
+                </div>
+
+
+
+                <div class="chart-container">
+
+                    <canvas
+                        id="monthlyEnergyChart">
+                    </canvas>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 AI SUMMARY
+            ================================================== -->
+
+            <section class="ai-summary card">
+
+                <div class="card-title">
+
+                    <div class="icon">
+                        🤖
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            AI Optimization Summary
+                        </h2>
+
+                        <p>
+                            Recommended configuration
+                            for the selected location.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div id="aiRecommendationText">
+
+                    Run the optimization to generate
+                    the AI recommendation.
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         CHART.JS
+    ====================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+
+
+
+    <!-- =====================================================
+         OPTIMIZATION JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        src="js/optimization.js">
+    </script>
+
+
+</body>
+
+</html>

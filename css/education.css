@@ -1,0 +1,487 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    color: #222;
+    transition: 0.3s;
+}
+
+
+/* ================= HEADER ================= */
+
+.navbar {
+    width: 100%;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.logo i {
+    font-size: 25px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #e69b00;
+}
+
+.theme-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background: transparent;
+
+    font-size: 18px;
+}
+
+
+/* ================= INTRO ================= */
+
+.education-intro {
+    text-align: center;
+
+    padding: 65px 20px 40px;
+}
+
+.education-intro h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.education-intro p {
+    max-width: 700px;
+    margin: auto;
+
+    line-height: 1.7;
+
+    color: #666;
+
+    font-size: 17px;
+}
+
+
+/* ================= CARDS ================= */
+
+.collector-container {
+    width: min(1200px, 92%);
+
+    margin: 0 auto 80px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.education-card {
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    border: 1px solid #e7e7e7;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+.image-container {
+    width: 100%;
+    height: 220px;
+
+    overflow: hidden;
+
+    background: #eeeeee;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.card-content h2 {
+    font-size: 21px;
+
+    margin-bottom: 12px;
+}
+
+.card-content p {
+    color: #666;
+
+    line-height: 1.65;
+
+    font-size: 14px;
+}
+
+
+/* ================= AI BUTTON ================= */
+
+.ai-floating-button {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 65px;
+    height: 65px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    z-index: 3000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 2px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+
+    transition: 0.25s;
+}
+
+.ai-floating-button:hover {
+    transform: scale(1.08);
+}
+
+.ai-floating-button i {
+    font-size: 23px;
+}
+
+.ai-floating-button span {
+    font-size: 11px;
+}
+
+
+/* ================= CHATBOT ================= */
+
+.chatbot {
+    position: fixed;
+
+    right: 25px;
+    bottom: 100px;
+
+    width: 360px;
+    max-width: calc(100vw - 30px);
+
+    height: 500px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.25);
+
+    z-index: 2999;
+
+    display: none;
+
+    flex-direction: column;
+
+    border: 1px solid #e5e5e5;
+}
+
+.chatbot.open {
+    display: flex;
+}
+
+
+/* ================= CHAT HEADER ================= */
+
+.chat-header {
+    min-height: 60px;
+
+    padding: 0 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.chat-header > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-weight: 700;
+}
+
+.chat-header button {
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 20px;
+}
+
+
+/* ================= MESSAGES ================= */
+
+.chat-messages {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.bot-message,
+.user-message {
+    max-width: 85%;
+
+    padding: 11px 14px;
+
+    border-radius: 12px;
+
+    line-height: 1.5;
+
+    font-size: 14px;
+}
+
+.bot-message {
+    align-self: flex-start;
+}
+
+.user-message {
+    align-self: flex-end;
+}
+
+
+/* ================= INPUT ================= */
+
+.chat-input-area {
+    display: flex;
+
+    gap: 8px;
+
+    padding: 12px;
+
+    border-top: 1px solid #e5e5e5;
+}
+
+.chat-input-area input {
+    flex: 1;
+
+    border: 1px solid #ddd;
+
+    border-radius: 9px;
+
+    padding: 11px;
+
+    outline: none;
+}
+
+.chat-input-area button {
+    width: 44px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+}
+
+
+/* ================= DARK MODE ================= */
+
+body.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar {
+    background: #1c1c1c;
+    border-color: #333;
+}
+
+body.dark-mode .nav-links a {
+    color: #ddd;
+}
+
+body.dark-mode .education-intro p {
+    color: #bbb;
+}
+
+body.dark-mode .education-card {
+    background: #1d1d1d;
+    border-color: #333;
+}
+
+body.dark-mode .card-content p {
+    color: #bbb;
+}
+
+body.dark-mode .chatbot {
+    background: #1d1d1d;
+    border-color: #333;
+}
+
+body.dark-mode .chat-header button {
+    color: #fff;
+}
+
+body.dark-mode .chat-input-area {
+    border-color: #333;
+}
+
+body.dark-mode .chat-input-area input {
+    background: #292929;
+    color: #fff;
+    border-color: #444;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .collector-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 12px 20px;
+
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+    .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        overflow-x: auto;
+
+        padding-bottom: 8px;
+    }
+
+    .education-intro h1 {
+        font-size: 30px;
+    }
+
+    .collector-container {
+        grid-template-columns: 1fr;
+    }
+
+    .chatbot {
+        right: 15px;
+        bottom: 90px;
+
+        width: calc(100vw - 30px);
+
+        height: 480px;
+    }
+
+    .ai-floating-button {
+        right: 18px;
+        bottom: 18px;
+    }
+
+}
